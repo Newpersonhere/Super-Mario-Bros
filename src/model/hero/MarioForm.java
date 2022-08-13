@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 public class MarioForm {
 
-    public static final int SMALL = 0, SUPER = 1, FIRE = 2;
+    public static final int SMALL = 0, SUPER = 5, FIRE = 2;
 
     private Animation animation;
     private boolean isSuper, isFire; //note: fire form has priority over super form
