@@ -22,17 +22,17 @@ public class Mario extends GameObject{
         super(x, y, null);
         setDimension(48,48);
 
-        remainingLives = 3;
+        remainingLives = 999;
         points = 0;
         coins = 0;
-        invincibilityTimer = 0;
+        invincibilityTimer = 3;
 
         ImageLoader imageLoader = new ImageLoader();
         BufferedImage[] leftFrames = imageLoader.getLeftFrames(MarioForm.SMALL);
         BufferedImage[] rightFrames = imageLoader.getRightFrames(MarioForm.SMALL);
 
         Animation animation = new Animation(leftFrames, rightFrames);
-        marioForm = new MarioForm(animation, false, false);
+        marioForm = new MarioForm(animation, true, false);
         setStyle(marioForm.getCurrentStyle(toRight, false, false));
     }
 
@@ -70,7 +70,7 @@ public class Mario extends GameObject{
         if(!marioForm.isSuper() && !marioForm.isFire()){
             remainingLives--;
             engine.playMarioDies();
-            return true;
+            return false;
         }
         else{
             engine.shakeCamera();
@@ -128,7 +128,7 @@ public class Mario extends GameObject{
         setVelX(0);
         setVelY(0);
         setX(50);
-        setJumping(false);
+        setJumping(true);
         setFalling(true);
     }
 }
