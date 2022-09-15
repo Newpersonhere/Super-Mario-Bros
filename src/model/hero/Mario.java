@@ -22,8 +22,8 @@ public class Mario extends GameObject{
         super(x, y, null);
         setDimension(48,48);
 
-        remainingLives = 3;
-        points = 0;
+        remainingLives = 999;
+        points = 9999999;
         coins = 0;
         invincibilityTimer = 0;
 
@@ -70,7 +70,7 @@ public class Mario extends GameObject{
         if(!marioForm.isSuper() && !marioForm.isFire()){
             remainingLives--;
             engine.playMarioDies();
-            return true;
+            return false;
         }
         else{
             engine.shakeCamera();
